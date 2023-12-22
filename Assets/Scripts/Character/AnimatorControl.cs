@@ -2,19 +2,19 @@
 
 namespace Assets.Scripts.Character
 {
-    public class AnimatorControl 
-    {        
-        private readonly Animator _animator;               
+    public class AnimatorControl
+    {
+        private readonly Animator _animator;
 
         public AnimatorControl(Animator animator)
-        {            
-            _animator = animator;                               
-        } 
+        {
+            _animator = animator;
+        }
 
         public void ChangeParams(Vector2 directionVector)
         {
-            Vector2 vectorCoreection = VectorCorrection(directionVector);            
-          
+            Vector2 vectorCoreection = VectorCorrection(directionVector);
+
             _animator.SetFloat("XDirection", vectorCoreection.x);
             _animator.SetFloat("YDirection", vectorCoreection.y);
         }
@@ -25,13 +25,9 @@ namespace Assets.Scripts.Character
             var y = changedPosition.y < 0 ? -changedPosition.y : changedPosition.y;
 
             if (x > y)
-            {
                 return new Vector2(changedPosition.x, 0);
-            }
             else
-            {
                 return new Vector2(0, changedPosition.y);
-            }
         }
     }
 }
