@@ -3540,7 +3540,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (3)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3571,7 +3571,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (9)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14296,7 +14296,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (2)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14346,9 +14346,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1457040293}
-  - component: {fileID: 1457040294}
   m_Layer: 0
-  m_Name: Way
+  m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -14377,28 +14376,6 @@ Transform:
   - {fileID: 174512894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1457040294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457040292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2c1a4b9b02a0a43a5a0671ee808ac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Points>k__BackingField:
-  - {x: -7.5672693, y: 1.654157, z: -0.0838902}
-  - {x: -7.3672695, y: 5.3841567, z: -0.0838902}
-  - {x: -4.3172693, y: 6.724157, z: -0.0838902}
-  - {x: -1.4572692, y: 6.714157, z: -0.0838902}
-  - {x: -1.3972692, y: 1.9841571, z: -0.0838902}
-  - {x: 0.5227308, y: -4.805843, z: -0.0838902}
-  - {x: 0.5627308, y: -6.305843, z: -0.0838902}
-  - {x: -4.8272696, y: -6.3358426, z: -0.0838902}
-  - {x: -7.727269, y: -4.735843, z: -0.0838902}
 --- !u!1 &1547143599
 GameObject:
   m_ObjectHideFlags: 0
@@ -14411,7 +14388,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (7)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14442,7 +14419,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (8)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14473,7 +14450,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (5)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14616,9 +14593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f48553fa3748444aa9c1076860dcb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _way: {fileID: 1457040294}
   _view: {fileID: 1595686298}
-  _movement: {fileID: 1595686299}
+  _mover: {fileID: 1595686299}
 --- !u!114 &1595686298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14643,6 +14619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad452f17907fc454fb2020b18329b629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 3
+  _parentPoints: {fileID: 1457040293}
 --- !u!70 &1595686300
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -15002,7 +14980,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (6)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -15033,7 +15011,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point (4)
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

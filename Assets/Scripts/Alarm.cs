@@ -2,7 +2,10 @@ using UnityEngine;
 using DG.Tweening;
 
 public class Alarm : MonoBehaviour
-{    
+{
+    private const float Duration = 1f;
+    private const float Strength = 1f;
+
     private Vector3 _normalScale;
     private Tween _tween;
 
@@ -13,7 +16,7 @@ public class Alarm : MonoBehaviour
 
     public void Run()
     {
-        _tween = transform.DOShakeScale(1f, 1f).From().SetLoops(-1, LoopType.Yoyo);
+        _tween = transform.DOShakeScale(Duration, Strength).From().SetLoops(-1, LoopType.Yoyo);
     }
 
     public void Stop() 

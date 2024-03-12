@@ -3,6 +3,9 @@ using DG.Tweening;
 
 public class AlarmZone : MonoBehaviour
 {
+    private const float MaxVolume = 1;
+    private const float MinVolume = 0;
+
     [SerializeField] private string _targetTag = "Thief";
     [SerializeField] private Alarm[] _alarms;    
     
@@ -17,7 +20,7 @@ public class AlarmZone : MonoBehaviour
             alarm.Run();
 
         _audio.Play();
-        _audio.DOFade(1, _durationChangeSound);
+        _audio.DOFade(MaxVolume, _durationChangeSound);
     }
 
     private void StopAlert()
@@ -25,7 +28,7 @@ public class AlarmZone : MonoBehaviour
         foreach (Alarm alarm in _alarms)
             alarm.Stop();
 
-        _audio.DOFade(0, _durationChangeSound).OnComplete(()=> _audio.Stop());
+        _audio.DOFade(MinVolume, _durationChangeSound).OnComplete(()=> _audio.Stop());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

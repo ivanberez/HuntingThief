@@ -1,37 +1,26 @@
-using Assets.Scripts;
 using Assets.Scripts.Character;
 using UnityEngine;
 
-[RequireComponent(typeof(View))]
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(View), typeof(PointMover))]
 
 public class Thief : MonoBehaviour
-{
-    [SerializeField] private Way _way;
+{    
     [SerializeField] private View _view;
-    [SerializeField] private Movement _movement;
-    
-
-    private void OnValidate()
-    {
-        _view = GetComponent<View>();
-        _movement = GetComponent<Movement>();
-    }
+    [SerializeField] private PointMover _mover;       
 
     private void Awake()
     {
-        _movement.ChangeDirection += _view.AnimatorControl.ChangeParams;        
-        _movement.ChangeDirection += _view.DefineFlip;
+        _view = GetComponent<View>();
+        _mover = GetComponent<PointMover>();        
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        _movement.MovePath(_way);        
-    }    
+        _mover.ChangeDirection += _view.ChangeDirection;
+    }
 
     private void OnDisable()
     {
-        _movement.ChangeDirection -= _view.AnimatorControl.ChangeParams;        
-        _movement.ChangeDirection -= _view.DefineFlip;
+        _mover.ChangeDirection -= _view.ChangeDirection;                
     }
 }

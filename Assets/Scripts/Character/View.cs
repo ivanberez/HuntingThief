@@ -2,24 +2,23 @@
 
 namespace Assets.Scripts.Character
 {
-    [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]    
     public class View : MonoBehaviour
     {
         private Animator _animator;
-        private SpriteRenderer _spriteRenderer;
-        
-        public  AnimatorControl AnimatorControl { get; private set; }
+        private SpriteRenderer _spriteRenderer;               
 
         private void OnValidate()
         {
             _animator = GetComponent<Animator>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();            
-            AnimatorControl = new AnimatorControl(_animator);            
+            _spriteRenderer = GetComponent<SpriteRenderer>();                        
         }
 
-        public void DefineFlip(Vector2 direction)
+        public void ChangeDirection(Vector2 direction)
         {
+            _animator.SetFloat("XDirection", direction.x);
+            _animator.SetFloat("YDirection", direction.y);
+
             _spriteRenderer.flipX = direction.x < 0;
         }
     }
