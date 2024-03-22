@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8555793689328614982}
   - component: {fileID: 8359123881188683069}
-  - component: {fileID: 4025369502661423951}
+  - component: {fileID: 3690221050781016149}
   m_Layer: 0
   m_Name: alarmRed
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926597510690026327}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.21, y: 5.71, z: 0.13559605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4025369502661423951
+--- !u!114 &3690221050781016149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 926597510690026327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685024bc0eb427e45a5cbce0cd4f95ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c7186bffd2df90428482ad4432fa5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
