@@ -7,27 +7,33 @@ public class Singnaling : MonoBehaviour
     [SerializeField] private WarningLight[] _warningLights;
     [SerializeField] private Sound _sound;
 
-    private void OnValidate () => _sound = GetComponent<Sound>();    
+    private void OnValidate() => _sound = GetComponent<Sound>();
 
-    private void OnEnable() => _detectZone.Detecting += Switshing;
-
-    private void OnDisable() => _detectZone.Detecting -= Switshing;    
-
-    private void Switshing(bool isAlert)
+    private void OnEnable()
     {
-        if(isAlert) 
-        {
-            foreach (WarningLight light in _warningLights)
-                light.TurnOn();
+        _detectZone.Detecting += TurnOn;
+        _detectZone.Empting += TurnOff;
+    }
 
-            _sound.Play();
-        }
-        else
-        {
-            foreach(WarningLight light in _warningLights)
-                light.TurnOff();
+    private void OnDisable()
+    {
+        _detectZone.Detecting -= TurnOn;
+        _detectZone.Empting -= TurnOff;
+    }
 
-            _sound.Stop();
-        }
+    private void TurnOn()
+    {
+        foreach (WarningLight light in _warningLights)
+            light.TurnOn();
+
+        _sound.Play();
+    }
+
+    private void TurnOff()
+    {
+        foreach (WarningLight light in _warningLights)
+            light.TurnOff();
+
+        _sound.Stop();
     }
 }

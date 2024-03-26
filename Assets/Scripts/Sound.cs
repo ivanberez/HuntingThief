@@ -11,16 +11,18 @@ public class Sound : MonoBehaviour
     [SerializeField] private float _durationChange;
     [SerializeField] private AudioSource _source;
 
+    private Tween _tween;
+
     private void OnValidate() => _source = GetComponent<AudioSource>();
 
     public void Play()
     {
         _source.Play();
-        _source.DOFade(MaxVolume, _durationChange);
+        _tween = _source.DOFade(MaxVolume, _durationChange);
     }
 
     public void Stop()
-    {
-        _source.DOFade(MinVolume, _durationChange).OnComplete(() => _source.Stop());
+    {        
+        _tween = _source.DOFade(MinVolume, _durationChange).OnComplete(() => { _source.Stop(); _tween.Kill(); });                
     }
 }
